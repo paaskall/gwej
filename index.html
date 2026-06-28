@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FOR MY PRINCESS GWEH 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --pink: #FF6EB4;
+      --deep: #2D1B4E;
+      --gold: #FFD700;
+      --light-pink: #FFB3D9;
+      --soft: #FFF0F8;
+      --violet: #9B59B6;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0A0010;
+      font-family: 'Nunito', sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* === STARS BACKGROUND === */
+    #stars-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* === RUNNING TEXT === */
+    .marquee-wrap {
+      position: relative;
+      z-index: 10;
+      background: linear-gradient(90deg, #2D1B4E, #6B2D8B, #2D1B4E);
+      border-top: 3px solid var(--gold);
+      border-bottom: 3px solid var(--gold);
+      padding: 10px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .marquee-text {
+      display: inline-block;
+      animation: marquee 18s linear infinite;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 11px;
+      color: var(--gold);
+      text-shadow: 0 0 10px var(--gold), 0 0 20px #FFD70088;
+      letter-spacing: 2px;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(100vw); }
+      to   { transform: translateX(-100%); }
+    }
+
+    /* === HERO === */
+    .hero {
+      position: relative;
+      z-index: 5;
+      text-align: center;
+      padding: 60px 20px 40px;
+    }
+
+    .crown {
+      font-size: 48px;
+      animation: float 3s ease-in-out infinite;
+      display: block;
+      margin-bottom: 16px;
+      filter: drop-shadow(0 0 14px var(--gold));
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-12px); }
+    }
+
+    .title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: clamp(14px, 4vw, 22px);
+      color: var(--pink);
+      text-shadow: 3px 3px 0 var(--deep), 0 0 20px var(--pink), 0 0 40px #FF6EB488;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      font-family: 'Press Start 2P', monospace;
+      font-size: clamp(8px, 2.5vw, 12px);
+      color: var(--gold);
+      text-shadow: 0 0 10px var(--gold);
+      line-height: 2;
+    }
+
+    /* === PIXEL ROSE === */
+    .rose-section {
+      position: relative;
+      z-index: 5;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .rose-container {
+      display: inline-block;
+      position: relative;
+    }
+
+    #roseCanvas {
+      display: block;
+      margin: 0 auto;
+      image-rendering: pixelated;
+    }
+
+    .rose-label {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 9px;
+      color: var(--light-pink);
+      margin-top: 16px;
+      text-shadow: 0 0 8px var(--pink);
+      animation: pulse-text 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-text {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.5; }
+    }
+
+    /* === PHOTOS === */
+    .photos-section {
+      position: relative;
+      z-index: 5;
+      padding: 40px 20px 60px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: clamp(9px, 2.5vw, 13px);
+      color: var(--gold);
+      margin-bottom: 32px;
+      text-shadow: 0 0 12px var(--gold);
+      letter-spacing: 1px;
+    }
+
+    .photo-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .photo-card {
+      position: relative;
+      width: 240px;
+      flex-shrink: 0;
+      background: var(--deep);
+      border: 4px solid var(--pink);
+      padding: 8px 8px 40px;
+      box-shadow: 0 0 0 2px var(--gold), 6px 6px 0 var(--violet), 0 0 30px #FF6EB444;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      animation: card-in 0.6s ease backwards;
+    }
+
+    .photo-card:nth-child(1) { animation-delay: 0.1s; }
+    .photo-card:nth-child(2) { animation-delay: 0.25s; }
+    .photo-card:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes card-in {
+      from { opacity: 0; transform: translateY(30px) scale(0.92); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .photo-card:hover {
+      transform: translateY(-8px) rotate(-1deg);
+      box-shadow: 0 0 0 2px var(--gold), 6px 6px 0 var(--violet), 0 0 50px #FF6EB466;
+    }
+
+    .photo-card:nth-child(2):hover { transform: translateY(-8px) rotate(1deg); }
+
+    .photo-card img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+      image-rendering: auto;
+    }
+
+    /* Placeholder saat belum ada foto */
+    .photo-placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: linear-gradient(135deg, #2D1B4E 0%, #6B2D8B 50%, #2D1B4E 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .photo-placeholder .heart-icon {
+      font-size: 40px;
+      animation: heartbeat 1.5s ease-in-out infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      14%       { transform: scale(1.2); }
+      28%       { transform: scale(1); }
+      42%       { transform: scale(1.1); }
+      70%       { transform: scale(1); }
+    }
+
+    .photo-placeholder span {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 7px;
+      color: var(--light-pink);
+      text-align: center;
+      line-height: 2;
+      padding: 0 8px;
+    }
+
+    .photo-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 40px;
+      background: var(--deep);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photo-caption span {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 7px;
+      color: var(--pink);
+      letter-spacing: 1px;
+    }
+
+    /* === HEARTS BURST === */
+    .hearts-section {
+      position: relative;
+      z-index: 5;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* === FOOTER === */
+    .footer {
+      position: relative;
+      z-index: 5;
+      text-align: center;
+      padding: 40px 20px 60px;
+      border-top: 2px solid #2D1B4E;
+    }
+
+    .footer-text {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 9px;
+      color: var(--violet);
+      line-height: 2.5;
+      opacity: 0.8;
+    }
+
+    .footer-hearts {
+      font-size: 24px;
+      margin-top: 16px;
+      animation: float 2.5s ease-in-out infinite;
+      display: block;
+    }
+
+    /* Pixel corner decorations */
+    .pixel-border {
+      position: relative;
+      z-index: 5;
+      height: 12px;
+      background: repeating-linear-gradient(90deg, var(--pink) 0px, var(--pink) 8px, transparent 8px, transparent 12px);
+      opacity: 0.6;
+    }
+
+    /* Floating pixel hearts */
+    .floating-hearts {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .fheart {
+      position: absolute;
+      bottom: -30px;
+      font-size: 16px;
+      animation: rise linear infinite;
+      opacity: 0;
+    }
+
+    @keyframes rise {
+      0%   { bottom: -30px; opacity: 0; transform: translateX(0) scale(0.6); }
+      10%  { opacity: 0.8; }
+      90%  { opacity: 0.3; }
+      100% { bottom: 110vh; opacity: 0; transform: translateX(40px) scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Stars canvas -->
+<canvas id="stars-canvas"></canvas>
+
+<!-- Floating hearts background -->
+<div class="floating-hearts" id="floating-hearts"></div>
+
+<!-- Running text bar -->
+<div class="marquee-wrap">
+  <span class="marquee-text">
+    ✨ AKU SAYANG KAMU ✨ &nbsp;&nbsp;&nbsp; 💖 AKU SAYANG KAMU 💖 &nbsp;&nbsp;&nbsp; ⭐ AKU SAYANG KAMU ⭐ &nbsp;&nbsp;&nbsp; 👑 AKU SAYANG KAMU 👑 &nbsp;&nbsp;&nbsp; 💕 AKU SAYANG KAMU 💕 &nbsp;&nbsp;&nbsp; 🌹 AKU SAYANG KAMU 🌹 &nbsp;&nbsp;&nbsp; ✨ AKU SAYANG KAMU ✨ &nbsp;&nbsp;&nbsp; 💖 AKU SAYANG KAMU 💖 &nbsp;&nbsp;&nbsp; ⭐ AKU SAYANG KAMU ⭐ &nbsp;&nbsp;&nbsp;
+  </span>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <span class="crown">👑</span>
+  <h1 class="title">For My Princess GWEJ<br />Tersayang</h1>
+  <p class="subtitle">my pixel princess 💖</p>
+</section>
+
+<!-- Pixel rose -->
+<section class="rose-section">
+  <canvas id="roseCanvas" width="200" height="200"></canvas>
+  <p class="rose-label">— mawar untukmu —</p>
+</section>
+
+<div class="pixel-border"></div>
+
+<!-- Photos -->
+<section class="photos-section">
+  <h2 class="section-title">✨</h2>
+  <div class="photo-grid">
+
+    <div class="photo-card">
+      <div class="photo-placeholder">
+        <span class="heart-icon">💝</span>
+      </div>
+     
+      <img src="foto1.jpeg" alt="Foto 1" />
+      
+      <div class="photo-caption"><span>💖 selalu ada 💖</span></div>
+    </div>
+
+    <!-- FOTO 2 -->
+    <div class="photo-card">
+      <div class="photo-placeholder">
+        <span class="heart-icon">💗</span>
+      </div>
+      
+      <img src="foto2.jpeg" alt="Foto 2" />
+      
+      <div class="photo-caption"><span>✨ kamu spesial ✨</span></div>
+    </div>
+
+    <!-- FOTO 3 -->
+    <div class="photo-card">
+      <div class="photo-placeholder">
+        <span class="heart-icon">💓</span>
+      </div>
+      
+      <img src="foto3.jpeg" alt="Foto 3" />
+      
+      <div class="photo-caption"><span>🌹 sayangku 🌹</span></div>
+    </div>
+
+  </div>
+</section>
+
+<div class="pixel-border"></div>
+
+<!-- Footer -->
+<footer class="footer">
+  <p class="footer-text">
+    dibuat dengan penuh cinta 💜<br />
+    hanya untukmu, selalu<br />
+    — dari yang menyayangimu —
+  </p>
+  <span class="footer-hearts">💖✨💖</span>
+</footer>
+
+<script>
+// === STARS ===
+(function() {
+  const canvas = document.getElementById('stars-canvas');
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+
+  function resize() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  for (let i = 0; i < 140; i++) {
+    stars.push({
+      x: Math.random(),
+      y: Math.random(),
+      r: Math.random() * 1.8 + 0.3,
+      speed: Math.random() * 0.4 + 0.1,
+      phase: Math.random() * Math.PI * 2,
+    });
+  }
+
+  function drawStars(t) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    stars.forEach(s => {
+      const alpha = 0.4 + 0.6 * Math.abs(Math.sin(t * s.speed + s.phase));
+      ctx.beginPath();
+      ctx.arc(s.x * canvas.width, s.y * canvas.height, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,220,255,${alpha})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(drawStars);
+  }
+  requestAnimationFrame(drawStars);
+})();
+
+// === PIXEL ROSE ANIMATION ===
+(function() {
+  const canvas = document.getElementById('roseCanvas');
+  const ctx = canvas.getContext('2d');
+  const S = 8; // pixel size
+  const W = 25, H = 25;
+
+  // Rose frames — each array is a 25x25 pixel grid
+  // 0=empty, 1=stem/leaf green, 2=dark rose, 3=mid rose, 4=bright petal, 5=gold center
+  const frames = [];
+
+  function buildFrame(stage) {
+    const grid = [];
+    for (let y = 0; y < H; y++) {
+      grid[y] = [];
+      for (let x = 0; x < W; x++) grid[y][x] = 0;
+    }
+
+    // Stem
+    const stemStart = stage >= 1 ? 22 : 25;
+    for (let y = stemStart; y < H; y++) {
+      grid[y][12] = 1;
+      grid[y][11] = 1;
+    }
+
+    // Leaves
+    if (stage >= 2) {
+      [[16,9],[15,8],[14,7]].forEach(([y,x]) => { grid[y][x] = 1; });
+      [[16,13],[15,14],[14,15]].forEach(([y,x]) => { grid[y][x] = 1; });
+    }
+
+    // Bud / bloom
+    if (stage >= 3) {
+      // Core bud
+      [[11,11],[11,12],[11,13],[12,10],[12,11],[12,12],[12,13],[12,14],
+       [13,10],[13,11],[13,12],[13,13],[13,14]].forEach(([y,x]) => { grid[y][x] = 2; });
+    }
+
+    if (stage >= 4) {
+      // Outer petals opening
+      [[9,11],[9,12],[9,13],[10,10],[10,11],[10,12],[10,13],[10,14],
+       [11,9],[11,10],[11,14],[11,15],[14,9],[14,10],[14,14],[14,15],
+       [15,10],[15,11],[15,12],[15,13],[15,14]].forEach(([y,x]) => { grid[y][x] = 3; });
+    }
+
+    if (stage >= 5) {
+      // Full bloom top petals
+      [[7,11],[7,12],[7,13],[8,10],[8,11],[8,12],[8,13],[8,14],
+       [9,9],[9,10],[9,14],[9,15]].forEach(([y,x]) => { grid[y][x] = 4; });
+      // Center highlight
+      [[11,11],[11,12],[12,11],[12,12]].forEach(([y,x]) => { grid[y][x] = 5; });
+    }
+
+    if (stage >= 6) {
+      // Side petals
+      [[10,8],[11,8],[12,8],[13,8],[10,16],[11,16],[12,16],[13,16]].forEach(([y,x]) => { grid[y][x] = 4; });
+    }
+
+    return grid;
+  }
+
+  for (let s = 0; s <= 6; s++) frames.push(buildFrame(s));
+  // Hold last frame then repeat
+  for (let i = 0; i < 20; i++) frames.push(buildFrame(6));
+
+  const colors = {
+    0: null,
+    1: '#4CAF50',
+    2: '#8B0000',
+    3: '#C0392B',
+    4: '#FF6EB4',
+    5: '#FFD700',
+  };
+
+  let frame = 0;
+  const delay = [0,600,500,400,300,300,300];
+  let lastTime = 0;
+
+  function draw(ts) {
+    if (ts - lastTime > (delay[frame] || 200)) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const grid = frames[frame];
+      for (let y = 0; y < H; y++) {
+        for (let x = 0; x < W; x++) {
+          const v = grid[y][x];
+          if (!v) continue;
+          ctx.fillStyle = colors[v];
+          ctx.fillRect(x * S, y * S, S, S);
+          // Pixel border highlight
+          ctx.fillStyle = 'rgba(255,255,255,0.25)';
+          ctx.fillRect(x * S, y * S, S, 2);
+          ctx.fillRect(x * S, y * S, 2, S);
+        }
+      }
+      frame = (frame + 1) % frames.length;
+      lastTime = ts;
+    }
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
+
+// === FLOATING HEARTS ===
+(function() {
+  const container = document.getElementById('floating-hearts');
+  const emojis = ['💖','💗','💕','💓','✨','🌸','💝'];
+
+  function spawnHeart() {
+    const el = document.createElement('span');
+    el.className = 'fheart';
+    el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    el.style.left = Math.random() * 100 + 'vw';
+    el.style.fontSize = (10 + Math.random() * 14) + 'px';
+    const dur = 6 + Math.random() * 8;
+    el.style.animationDuration = dur + 's';
+    el.style.animationDelay = (Math.random() * 4) + 's';
+    container.appendChild(el);
+    setTimeout(() => el.remove(), (dur + 5) * 1000);
+  }
+
+  for (let i = 0; i < 10; i++) setTimeout(spawnHeart, i * 400);
+  setInterval(spawnHeart, 1200);
+})();
+</script>
+</body>
+</html>
